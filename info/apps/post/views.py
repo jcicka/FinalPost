@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from django.views.generic.list import ListView
 from django.http import HttpResponse
+from django.views.generic.detail import DetailView
 
 class ListarPosts(ListView):
 	#login_url = 'login'
@@ -14,3 +15,7 @@ class ListarPosts(ListView):
 # Create your views here.
 #def inicio(request):
 #	return render(request, 'index.html')
+
+class DetallePosts(DetailView):
+	model=Post
+	template_name="post_detail.html"

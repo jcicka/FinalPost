@@ -3,7 +3,7 @@
 
 {% block content %}
 	
-	<div class="row mb-2">
+	<div class="row">
 
 		{% if post %}
 			{% for c in post %}
@@ -15,7 +15,7 @@
 				          <h3 class="mb-0">{{c.titulo}}</h3>
 				          <div class="mb-1 text-muted">{{c.fecha_creacion}}</div>
 				          <p class="card-text mb-auto">{{c.contenido}}</p>
-				          <a href="#" class="stretched-link">Ver</a>
+				          <a href="{% url 'detalle' c.id %}" class="stretched-link">Ver</a>
 				        </div>
 				        
 				      </div>

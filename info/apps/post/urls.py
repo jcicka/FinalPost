@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
 	path('', views.ListarPosts.as_view(), name= 'lista'),
+	path('<slug:pk>/detalle', views.DetallePosts.as_view(), name= 'detalle'),
 ]
