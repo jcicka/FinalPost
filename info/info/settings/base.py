@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.post',
+    'apps.user',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,9 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.urls import reverse_lazy
+
+#AUTH_USER_MODEL='user.Usuario'
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('lista')
