@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h1>{{ object }}</h1>
+	<h2>{{ object.fecha_creacion }}</h2>
+	<h2>{{ object.contenido }}</h2>
+
+	{% if user.is_authenticated %}
+		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+						  		Eliminar
+		</button>
+
+	{% endif %}
+	<a class="btn btn-info" href="{% url 'detalle' object.id %}" role="button">Volver »</a>
+	
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Eliminar Post</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        Estas seguro que deseas eliminar el Post <strong>{{ object.titulo}}</strong>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+		        <form action="{% url 'delete' object.id %}" method="POST">
+				       {% csrf_token %}
+				       <button class="btn btn-danger">Borrar</button>
+				</form>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+
+{% endblock %}	

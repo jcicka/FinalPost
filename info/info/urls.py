@@ -22,7 +22,6 @@ urlpatterns = [
 	path('post/', include('apps.post.urls')),
 	path('admin/', admin.site.urls),
 	path('', include('apps.user.urls')),
-	#path('post/',)
-	#path('',inicio, name='index')
+	path('',views.inicio, name ='index'),
 ]
 

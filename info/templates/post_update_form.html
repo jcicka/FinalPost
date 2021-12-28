@@ -14,6 +14,7 @@
 				{{form.contenido}}
 		
 	    <input type="submit" class="btn btn-info" value="Modificar">
+	    <a class="btn btn-info" href="{% url 'detalle' object.id %}" role="button">Volver »</a>
 	</form>
 </div>
 {% endblock %}
